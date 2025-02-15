@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 1em;
+}
+
+main {
+    padding: 2em;
+}
+
+canvas {
+    border: 1px solid #000;
+    margin: 20px auto;
+    display: block;
+    background-color: #fff;
+}
+
+.controls {
+    margin-top: 20px;
+}
+
+#functionInput {
+    width: 300px;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduHub Learning Platform</title>
+    <link rel="stylesheet" href="ma.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=50&h=50&fit=crop" alt="EduHub Logo" class="logo-img">
+                <h1>Priyanshu Classes</h1>
+            </div>
+            <nav class="main-nav">
+                <div class="class-selector">
+                    <button class="class-btn active" data-class="9">Class 9</button>
+                    <button class="class-btn" data-class="10">Class 10</button>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for topics..." id="searchInput">
+                    <button class="search-btn">🔍</button>
+                </div>
+        
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="progress-tracker">
+            <h3>Your Learning Progress</h3>
+            <div class="progress-bars">
+                <div class="progress-item">
+                    <span>Mathematics</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%"></div>
+                    </div>
+                    <span>75%</span>
+                </div>
+                <div class="progress-item">
+                    <span>Science</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 60%"></div>
+                    </div>
+                    <span>60%</span>
+                </div>
+                <div class="progress-item">
+                    <span>English</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%"></div>
+                    </div>
+                    <span>85%</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="subjects">
+            <div class="section-header">
+                <h2>Select Subject</h2>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid">Grid</button>
+                    <button class="view-btn" data-view="list">List</button>
+                </div>
+            </div>
+            <div class="subject-grid">
+                <div class="subject-card" data-subject="math">
+                    <span class="subject-icon">📐</span>
+                    <h3>Mathematics</h3>
+                    <div class="completion-badge">75% Complete</div>
+                    <div class="resources">
+                        <a href="class9-math-notes.html" class="resource-link" target="_blank">
+                            <span>📚 Notes (Class 9)</span>
+                            <span class="resource-count">12 Chapters</span>
+                        </a>
+                        <a href="class10-math-notes.html" class="resource-link" target="_blank">
+                            <span>📚 Notes (Class 10)</span>
+                            <span class="resource-count">12 Chapters</span>
+                        </a>
+                        <a href="class9-math-tests.html" class="resource-link" target="_blank">
+                            <span>✍️ Tests (Class 9)</span>
+                            <span class="resource-count">8 Available</span>
+                        </a>
+                        <a href="class10-math-tests.html" class="resource-link" target="_blank">
+                            <span>✍️ Tests (Class 10)</span>
+                            <span class="resource-count">8 Available</span>
+                        </a>
+                    </div>
+                    <div class="recent-activity">
+                        <p>Last studied: 2 hours ago</p>
+                    </div>
+                </div>
+                <div class="subject-card" data-subject="science">
+                    <span class="subject-icon">🔬</span>
+                    <h3>Science</h3>
+                    <div class="completion-badge">60% Complete</div>
+                    <div class="resources">
+                            <span class="resource-count">15 Chapters</span>
+                        </a>
+                        <a href="class10-science-notes.html" class="resource-link" target="_blank">
+                            <span>📚 Notes (Class 10)</span>
+                            <span class="resource-count">15 Chapters</span>
+                        </a>
+                        <a href="class9-science-notes.html" class="resource-link" target="_blank">
+                            <span>📚 Notes (Class 10)</span>
+                            <span class="resource-count">15 Chapters</span>
+                        </a>
+                        <a href="class9-science-tests.html" class="resource-link" target="_blank">
+                            <span>✍️ Tests (Class 9)</span>
+                            <span class="resource-count">10 Available</span>
+                        </a>
+                        <a href="class10-science-tests.html" class="resource-link" target="_blank">
+                            <span>✍️ Tests (Class 10)</span>
+                            <span class="resource-count">10 Available</span>
+                        </a>
+                    </div>
+                    <div class="recent-activity">
+                        <p>Last studied: 1 day ago</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-content">
+            <h2>Featured Resources</h2>
+            <div class="featured-grid">
+                <div class="featured-card live-session">
+                    <div class="live-badge">LIVE NOW</div>
+                    <img src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=300&h=200&fit=crop" alt="Live Session" class="featured-img">
+                    <div class="card-content">
+                        <h3>Live Doubt Clearing Session</h3>
+                        <p>Mathematics - Trigonometry</p>
+                        <div class="session-info">
+                            <span>👨‍🏫 Prof. Smith</span>
+                            <span>👥 125 Students</span>
+                        </div>
+                        <a href="C:\Users\sonakshi\Desktop\ok\p.html" class="join-btn">Join Now</a>
+                    </div>
+                </div>
+                <div class="featured-card upcoming-test">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=300&h=200&fit=crop" alt="Upcoming Test" class="featured-img">
+                    <div class="card-content">
+                        <h3>Weekly Test</h3>
+                        <p>Science Quiz - Forces and Motion</p>
+                        <div class="test-info">
+                            <span>⏰ Starts in 2 hours</span>
+                            <span>⌛ Duration: 1 hour</span>
+                        </div>
+                        <a href="#" class="test-btn">Prepare Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Study Schedule</a></li>
+                    <li><a href="#">Test Series</a></li>
+                    <li><a href="#">Live Sessions</a></li>
+                    <li><a href="#">Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="#" class="social-link">📱</a>
+                    <a href="#" class="social-link">💬</a>
+                    <a href="#" class="social-link">📧</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="ma.js"></script>
+</body>
+</html>

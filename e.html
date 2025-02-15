@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science Lab</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f4f4f9, #dfe6e9);
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background: #4caf50;
+            color: white;
+            padding: 1.5em 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .container {
+            margin: 2em auto;
+            padding: 2em;
+            max-width: 800px;
+            background: white;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5em;
+        }
+        .slider-container {
+            margin: 1.5em 0;
+        }
+        input[type="range"] {
+            width: 100%;
+            cursor: pointer;
+        }
+        select {
+            width: 100%;
+            padding: 0.5em;
+            margin-top: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        button {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 0.75em 1.5em;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .result {
+            margin-top: 2em;
+            padding: 1.5em;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background: #e3f2fd;
+            font-size: 1.2em;
+        }
+        .result p {
+            margin: 0;
+        }
+        .info-box {
+            margin-top: 2em;
+            padding: 1em;
+            background: #ffe0b2;
+            border-left: 4px solid #ffa726;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 0.9em;
+        }
+        .info-box strong {
+            color: #e65100;
+        }
+        .history {
+            margin-top: 2em;
+            padding: 1em;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 0.9em;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        .chemical-info {
+            margin: 1em 0;
+            font-size: 0.9em;
+        }
+        .chemical-info p {
+            margin: 0.5em 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Science Lab Simulator</h1>
+    </header>
+    <div class="container">
+        <h2>Mix Your Chemical Solutions</h2>
+        <div class="slider-container">
+            <label for="chemical1">Chemical 1:</label>
+            <select id="chemical1" onchange="updateChemicalInfo()">
+                <option value="10" data-info="Water: Neutral pH, Boiling Point 100°C">Water</option>
+                <option value="20" data-info="Ethanol: Flammable, Boiling Point 78.37°C">Ethanol</option>
+                <option value="30" data-info="Acetone: Volatile, Boiling Point 56.05°C">Acetone</option>
+                <option value="40" data-info="Methanol: Toxic, Boiling Point 64.7°C">Methanol</option>
+                <option value="50" data-info="Glycerin: Viscous, Boiling Point 290°C">Glycerin</option>
+                <option value="60" data-info="Hydrogen Peroxide: Reactive, Boiling Point 150.2°C">Hydrogen Peroxide</option>
+                <option value="70" data-info="Sulfuric Acid: Corrosive, Boiling Point 337°C">Sulfuric Acid</option>
+                <option value="80" data-info="Ammonia: Pungent Odor, Boiling Point -33.34°C">Ammonia</option>
+                <option value="90" data-info="Sodium Hydroxide: Caustic, Boiling Point 1,388°C">Sodium Hydroxide</option>
+                <option value="100" data-info="Nitric Acid: Corrosive, Boiling Point 83°C">Nitric Acid</option>
+                <option value="110" data-info="Phosphoric Acid: Weak Acid, Boiling Point 158°C">Phosphoric Acid</option>
+                <option value="120" data-info="Chloroform: Volatile, Boiling Point 61.2°C">Chloroform</option>
+                <option value="130" data-info="Benzene: Carcinogenic, Boiling Point 80.1°C">Benzene</option>
+                <option value="140" data-info="Toluene: Flammable, Boiling Point 110.6°C">Toluene</option>
+                <option value="150" data-info="Formaldehyde: Toxic, Boiling Point -19°C">Formaldehyde</option>
+            </select>
+        </div>
+        <div class="slider-container">
+            <label for="chemical2">Chemical 2:</label>
+            <select id="chemical2" onchange="updateChemicalInfo()">
+                <option value="10" data-info="Water: Neutral pH, Boiling Point 100°C">Water</option>
+                <option value="20" data-info="Ethanol: Flammable, Boiling Point 78.37°C">Ethanol</option>
+                <option value="30" data-info="Acetone: Volatile, Boiling Point 56.05°C">Acetone</option>
+                <option value="40" data-info="Methanol: Toxic, Boiling Point 64.7°C">Methanol</option>
+                <option value="50" data-info="Glycerin: Viscous, Boiling Point 290°C">Glycerin</option>
+                <option value="60" data-info="Hydrogen Peroxide: Reactive, Boiling Point 150.2°C">Hydrogen Peroxide</option>
+                <option value="70" data-info="Sulfuric Acid: Corrosive, Boiling Point 337°C">Sulfuric Acid</option>
+                <option value="80" data-info="Ammonia: Pungent Odor, Boiling Point -33.34°C">Ammonia</option>
+                <option value="90" data-info="Sodium Hydroxide: Caustic, Boiling Point 1,388°C">Sodium Hydroxide</option>
+                <option value="100" data-info="Nitric Acid: Corrosive, Boiling Point 83°C">Nitric Acid</option>
+                <option value="110" data-info="Phosphoric Acid: Weak Acid, Boiling Point 158°C">Phosphoric Acid</option>
+                <option value="120" data-info="Chloroform: Volatile, Boiling Point 61.2°C">Chloroform</option>
+                <option value="130" data-info="Benzene: Carcinogenic, Boiling Point 80.1°C">Benzene</option>
+                <option value="140" data-info="Toluene: Flammable, Boiling Point 110.6°C">Toluene</option>
+                <option value="150" data-info="Formaldehyde: Toxic, Boiling Point -19°C">Formaldehyde</option>
+            </select>
+        </div>
+        <div class="chemical-info" id="chemical-info">
+            <p>Select chemicals to see their properties here.</p>
+        </div>
+        <button onclick="mixChemicals()">Mix Chemicals</button>
+        <button onclick="resetSimulator()">Reset</button>
+        <div class="result" id="result">
+            <p>Choose chemicals and click "Mix Chemicals" to see the result!</p>
+        </div>
+        <div class="history" id="history">
+            <strong>Reaction History:</strong>
+            <ul id="history-list"></ul>
+        </div>
+        <div class="info-box">
+            <strong>Tip:</strong> The reaction's intensity is determined by the difference in chemical values. Experiment with different combinations!
+        </div>
+    </div>
+
+    <script>
+        function mixChemicals() {
+            const chemical1 = parseInt(document.getElementById("chemical1").value);
+            const chemical2 = parseInt(document.getElementById("chemical2").value);
+            const resultDiv = document.getElementById("result");
+            const historyList = document.getElementById("history-list");
+
+            const intensity = Math.abs(chemical1 - chemical2);
+
+            let reaction;
+            let sound;
+            if (intensity < 20) {
+                reaction = "Stable solution formed!";
+                resultDiv.style.backgroundColor = "#a5d6a7"; // Greenish
+                sound = new Audio("stable.mp3");
+            } else if (intensity < 50) {
+                reaction = "A mild reaction occurred.";
+                resultDiv.style.backgroundColor = "#fff59d"; // Yellowish
+                sound = new Audio("mild.mp3");
+            } else {
+                reaction = "A violent explosion!";
+                resultDiv.style.backgroundColor = "#ef9a9a"; // Reddish
+                sound = new Audio("explosion.mp3");
+            }
+
+            resultDiv.innerHTML = `<p>${reaction}</p>`;
+
+            const historyItem = document.createElement("li");
+            historyItem.textContent = `Chemical 1: ${document.getElementById("chemical1").options[document.getElementById("chemical1").selectedIndex].text}, Chemical 2: ${document.getElementById("chemical2").options[document.getElementById("chemical2").selectedIndex].text}, Result: ${reaction}`;
+            historyList.appendChild(historyItem);
+
+            sound.play();
+        }
+
+        function resetSimulator() {
+            document.getElementById("chemical1").selectedIndex = 0;
+            document.getElementById("chemical2").selectedIndex = 0;
+            document.getElementById("result").innerHTML = `<p>Choose chemicals and click "Mix Chemicals" to see the result!</p>`;
+            document.getElementById("result").style.backgroundColor = "#e3f2fd";
+            document.getElementById("history-list").innerHTML = "";
+            document.getElementById("chemical-info").innerHTML = `<p>Select chemicals to see their properties here.</p>`;
+        }
+
+        function updateChemicalInfo() {
+            const chemical1Info = document.getElementById("chemical1").selectedOptions[0].getAttribute("data-info");
+            const chemical2Info = document.getElementById("chemical2").selectedOptions[0].getAttribute("data-info");
+            document.getElementById("chemical-info").innerHTML = `<p><strong>Chemical 1:</strong> ${chemical1Info}</p><p><strong>Chemical 2:</strong> ${chemical2Info}</p>`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Graphing Tool</title>
+    <link rel="stylesheet" href="geo.css">
+</head>
+<body>
+    <header>
+        <h1>Advanced Graphing Tool</h1>
+    </header>
+    <main>
+        <canvas id="graphCanvas"></canvas>
+        <div class="controls">
+            <label for="functionInput">Enter function(s):</label>
+            <input type="text" id="functionInput" placeholder="e.g., x^2 + 2x - 3, sin(x), cos(x/2)">
+            <button id="plotButton">Plot</button>
+            <button id="zoomInButton">Zoom In</button>
+            <button id="zoomOutButton">Zoom Out</button>
+            <button id="resetButton">Reset</button>
+            <button id="toggleGridButton">Toggle Grid</button>
+        </div>
+    </main>
+    <script src="geo.js"></script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduHub - Secure Payment</title>
+    <link rel="stylesheet" href="pay.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=50&h=50&fit=crop" alt="EduHub Logo" class="logo-img">
+                <h1>EduHub Learning</h1>
+            </div>
+            <div class="secure-badge">
+                <span>🔒 Secure Payment</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="payment-container">
+        <div class="payment-steps">
+            <div class="step active" data-step="1">
+                <span class="step-number">1</span>
+                <span class="step-text">Plan Selection</span>
+            </div>
+            <div class="step" data-step="2">
+                <span class="step-number">2</span>
+                <span class="step-text">Payment Details</span>
+            </div>
+            <div class="step" data-step="3">
+                <span class="step-number">3</span>
+                <span class="step-text">Confirmation</span>
+            </div>
+        </div>
+
+        <div class="payment-content">
+            <!-- Step 1: Plan Selection -->
+            <section class="payment-section active" id="planSelection">
+                <h2>Choose Your Learning Plan</h2>
+                <div class="plans-grid">
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Monthly Plan</h3>
+                            <div class="price">
+                                <span class="amount">₹999</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <ul class="plan-features">
+                            <li>✓ Access to all subjects</li>
+                            <li>✓ Live doubt clearing</li>
+                            <li>✓ Practice tests</li>
+                            <li>✓ Mobile access</li>
+                        </ul>
+                        <button class="select-plan-btn" data-plan="monthly" data-price="999">Select Plan</button>
+                    </div>
+                    <div class="plan-card popular">
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="plan-header">
+                            <h3>Quarterly Plan</h3>
+                            <div class="price">
+                                <span class="amount">₹2,499</span>
+                                <span class="period">/3 months</span>
+                            </div>
+                            <div class="savings">Save 15%</div>
+                        </div>
+                        <ul class="plan-features">
+                            <li>✓ All Monthly Plan Features</li>
+                            <li>✓ Downloadable notes</li>
+                            <li>✓ Priority support</li>
+                            <li>✓ Progress tracking</li>
+                        </ul>
+                        <button class="select-plan-btn" data-plan="quarterly" data-price="2499">Select Plan</button>
+                    </div>
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Yearly Plan</h3>
+                            <div class="price">
+                                <span class="amount">₹8,999</span>
+                                <span class="period">/year</span>
+                            </div>
+                            <div class="savings">Save 25%</div>
+                        </div>
+                        <ul class="plan-features">
+                            <li>✓ All Quarterly Plan Features</li>
+                            <li>✓ 1-on-1 mentoring</li>
+                            <li>✓ Career guidance</li>
+                            <li>✓ Parent dashboard</li>
+                        </ul>
+                        <button class="select-plan-btn" data-plan="yearly" data-price="8999">Select Plan</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 2: Payment Details -->
+            <section class="payment-section" id="paymentDetails">
+                <h2>Payment Information</h2>
+                <div class="payment-methods">
+                    <button class="payment-method-btn active" data-method="card">
+                        <span>💳</span> Credit/Debit Card
+                    </button>
+                    <button class="payment-method-btn" data-method="upi">
+                        <span>📱</span> UPI
+                    </button>
+                    <button class="payment-method-btn" data-method="netbanking">
+                        <span>🏦</span> Net Banking
+                    </button>
+                </div>
+
+                <!-- Card Payment Form -->
+                <form id="cardPaymentForm" class="payment-form active">
+                    <div class="card-preview">
+                        <div class="card-front">
+                            <div class="card-type"></div>
+                            <div class="card-number-display">•••• •••• •••• ••••</div>
+                            <div class="card-details">
+                                <div class="card-holder-display">CARD HOLDER</div>
+                                <div class="card-expiry-display">MM/YY</div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="card-stripe"></div>
+                            <div class="card-cvv-display">•••</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" maxlength="19" placeholder="1234 5678 9012 3456" autocomplete="cc-number">
+                        <div class="card-type-indicator"></div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cardHolder">Card Holder Name</label>
+                            <input type="text" id="cardHolder" placeholder="Name on card" autocomplete="cc-name">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiryDate">Expiry Date</label>
+                            <input type="text" id="expiryDate" maxlength="5" placeholder="MM/YY" autocomplete="cc-exp">
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="password" id="cvv" maxlength="4" placeholder="•••" autocomplete="cc-csc">
+                            <div class="cvv-hint">?</div>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- UPI Payment Form -->
+                <form id="upiPaymentForm" class="payment-form">
+                    <div class="form-group">
+                        <label for="upiId">UPI ID</label>
+                        <input type="text" id="upiId" placeholder="username@upi">
+                    </div>
+                </form>
+
+                <!-- Net Banking Form -->
+                <form id="netBankingForm" class="payment-form">
+                    <div class="form-group">
+                        <label for="bankSelect">Select Bank</label>
+                        <select id="bankSelect">
+                            <option value="">Choose your bank</option>
+                            <option value="sbi">State Bank of India</option>
+                            <option value="hdfc">HDFC Bank</option>
+                            <option value="icici">ICICI Bank</option>
+                            <option value="axis">Axis Bank</option>
+                        </select>
+                    </div>
+                </form>
+
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-item">
+                        <span>Plan</span>
+                        <span id="selectedPlan">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Duration</span>
+                        <span id="planDuration">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Amount</span>
+                        <span id="planAmount">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>GST (18%)</span>
+                        <span id="taxAmount">-</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span>Total Amount</span>
+                        <span id="totalAmount">-</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 3: Confirmation -->
+            <section class="payment-section" id="confirmation">
+                <div class="processing-animation">
+                    <div class="spinner"></div>
+                    <p>Processing your payment...</p>
+                </div>
+                <div class="success-message" style="display: none;">
+                    <div class="success-icon">✓</div>
+                    <h2>Payment Successful!</h2>
+                    <p>Your transaction ID: <span id="transactionId"></span></p>
+                    <div class="confirmation-details">
+                        <p>An email confirmation has been sent to your registered email address.</p>
+                        <p>Your subscription will be activated within the next 5 minutes.</p>
+                    </div>
+                    <button class="start-learning-btn">Start Learning</button>
+                </div>
+            </section>
+        </div>
+
+        <div class="payment-actions">
+            <button id="prevBtn" class="nav-btn" disabled>Previous</button>
+            <button id="nextBtn" class="nav-btn">Next</button>
+        </div>
+    </main>
+
+    <div class="security-features">
+        <div class="security-item">
+            <span>🔒</span>
+            <p>256-bit SSL Encryption</p>
+        </div>
+        <div class="security-item">
+            <span>🛡️</span>
+            <p>Secure Payment Gateway</p>
+        </div>
+        <div class="security-item">
+            <span>✓</span>
+            <p>PCI DSS Compliant</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Need Help?</h4>
+                <ul>
+                    <li><a href="#" id="supportChat">Live Chat Support</a></li>
+                    <li><a href="tel:+1234567890">Call Us: +1 234 567 890</a></li>
+                    <li><a href="mailto:support@eduhub.com">Email Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Secure Payment</h4>
+                <div class="payment-partners">
+                    <span>Visa</span>
+                    <span>Mastercard</span>
+                    <span>UPI</span>
+                    <span>Net Banking</span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2024 EduHub Learning. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Support Chat Widget -->
+    <div id="supportChatWidget" class="chat-widget">
+        <div class="chat-header">
+            <h3>Support Chat</h3>
+            <button class="close-chat">×</button>
+        </div>
+        <div class="chat-messages">
+            <div class="message support">
+                <span class="avatar">👩‍💼</span>
+                <div class="message-content">
+                    Hello! How can I help you with the payment process?
+                </div>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type your message...">
+            <button class="send-message">Send</button>
+        </div>
+    </div>
+
+    <script src="pay.js"></script>
+</body>
+</html>
